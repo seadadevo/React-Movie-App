@@ -33,10 +33,22 @@ const MovieControl = ({ movie, type }) => {
       {type === "watched" && (
         <>
           <Button
+            onClick={() =>
+              movieContext.MoviesDispatch({
+                type: actions.MOVIE_TO_WATCHLIST,
+                payload: movie, 
+              })
+            }
             content={<i className="fa-solid fa-eye-slash" />}
             className="bg-blue-500 hover:bg-blue-600"
           />
           <Button
+            onClick={() =>
+              movieContext.MoviesDispatch({
+                type: actions.REMOVE_MOVIE_FROM_WATCHED,
+                payload: movie, 
+              })
+            }
             content={<i className="fa-solid fa-trash" />}
             className="bg-red-500 hover:bg-red-600"
           />
